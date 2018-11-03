@@ -1,11 +1,13 @@
 package se.olapetersson.coolroutines.examples
 
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.actor
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 
 
 class CounterExample {
@@ -23,7 +25,9 @@ fun main(args: Array<String>) = runBlocking {
     val counterExample = CounterExample()
     (1..10).forEach {
         GlobalScope.launch {
-            counterExample.increaseCounter()
+//            withContext(Dispatchers.IO) {
+                counterExample.increaseCounter()
+//            }
         }
     }
 }

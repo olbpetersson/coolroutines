@@ -11,9 +11,10 @@ fun main(args: Array<String>) = runBlocking {
     }
 }
 
-fun getPizzaSlices() = sequence {
+suspend fun getPizzaSlices() = sequence {
     println("Handing over slices!")
+    println("returning slice 1")
     yield(Slice(1))
+    println("returning slice 2")
     yield(Slice(2))
-    yield(Slice(3))
 }
