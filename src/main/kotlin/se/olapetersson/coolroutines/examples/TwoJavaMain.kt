@@ -8,7 +8,7 @@ import kotlin.concurrent.thread
 fun main(args: Array<String>) {
     val threads = (1..1_000_000).map {
         thread {
-            Thread.sleep(1000L)
+            Thread.sleep(5000L)
         }
     }
     threads.forEach { it.join() }
